@@ -76,5 +76,17 @@
     "price": 150,
     "thumbnail": "url de la foto del producto",
     "id": 13
+  },
+  {
+    "title": "producto",
+    "price": 150,
+    "thumbnail": "url de la foto del producto",
+    "id": 14
+  },
+  {
+    "title": "producto",
+    "price": 150,
+    "thumbnail": "url de la foto del producto",
+    "id": 15
   }
 ]
