@@ -1,0 +1,92 @@
+[
+  {
+    "title": "producto",
+    "price": 150,
+    "thumbnail": "url de la foto del producto",
+    "id": 1
+  },
+  {
+    "title": "producto",
+    "price": 150,
+    "thumbnail": "url de la foto del producto",
+    "id": 2
+  },
+  {
+    "title": "producto",
+    "price": 150,
+    "thumbnail": "url de la foto del producto",
+    "id": 3
+  },
+  {
+    "title": "producto",
+    "price": 150,
+    "thumbnail": "url de la foto del producto",
+    "id": 4
+  },
+  {
+    "title": "producto",
+    "price": 150,
+    "thumbnail": "url de la foto del producto",
+    "id": 5
+  },
+  {
+    "title": "producto",
+    "price": 150,
+    "thumbnail": "url de la foto del producto",
+    "id": 6
+  },
+  {
+    "title": "producto",
+    "price": 150,
+    "thumbnail": "url de la foto del producto",
+    "id": 7
+  },
+  {
+    "title": "producto",
+    "price": 150,
+    "thumbnail": "url de la foto del producto",
+    "id": 8
+  },
+  {
+    "title": "producto",
+    "price": 150,
+    "thumbnail": "url de la foto del producto",
+    "id": 9
+  },
+  {
+    "title": "producto",
+    "price": 150,
+    "thumbnail": "url de la foto del producto",
+    "id": 10
+  },
+  {
+    "title": "producto",
+    "price": 150,
+    "thumbnail": "url de la foto del producto",
+    "id": 11
+  },
+  {
+    "title": "producto",
+    "price": 150,
+    "thumbnail": "url de la foto del producto",
+    "id": 12
+  },
+  {
+    "title": "producto",
+    "price": 150,
+    "thumbnail": "url de la foto del producto",
+    "id": 13
+  },
+  {
+    "title": "producto",
+    "price": 150,
+    "thumbnail": "url de la foto del producto",
+    "id": 14
+  },
+  {
+    "title": "producto",
+    "price": 150,
+    "thumbnail": "url de la foto del producto",
+    "id": 15
+  }
+]
