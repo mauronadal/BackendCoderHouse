@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Calculadora",
+    "price": "890.9",
+    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+    "id": "2"
+  },
+  {
+    "title": "Lapicera",
+    "price": "85",
+    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/pencil-pen-stationery-school-512.png",
+    "id": "3"
+  },
+  {
+    "title": "Cuaderno A4",
+    "price": "1015",
+    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/book-note-paper-school-256.png",
+    "id": "4"
+  },
+  {
+    "title": "Escuadra",
+    "price": "98.90",
+    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-128.png",
+    "id": 5
+  }
+]
