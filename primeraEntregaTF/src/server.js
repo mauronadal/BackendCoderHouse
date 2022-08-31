@@ -55,7 +55,8 @@ productosRouter.get('/:id', async (req, res) => {
 
 productosRouter.post('/', permisoAdmin,  async (req, res) => {
     console.log(req.body)
-    res.json({ id: await apiProducts.guardar(req.body) })
+    timestamp = Date.now();
+    res.json({ id: await apiProducts.guardar(req.body)})
 })
 
 productosRouter.put('/:id', permisoAdmin, async (req, res) => {
