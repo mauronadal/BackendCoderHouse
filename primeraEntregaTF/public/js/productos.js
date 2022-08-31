@@ -105,6 +105,7 @@ function makeHtmlTable(productos) {
             <table class="table table-dark">
                 <tr>
                     <th>Nombre</th>
+                    <th>Descripción</th>
                     <th>Precio</th>
                     <th>Imagen</th>
                     <th>Stock</th>
@@ -112,7 +113,8 @@ function makeHtmlTable(productos) {
         for (const prod of productos) {
             html += `
                     <tr>
-                    <td><a type="button" onclick="llenarFormulario('${prod.title}', '${prod.price}','${prod.price}','${prod.thumbnail}', )" title="copiar a formulario...">${prod.title}</a></td>
+                    <td><a type="button" onclick="llenarFormulario('${prod.title}', '${prod.descrip}','${prod.price}','${prod.thumbnail}','${prod.stock}', )" title="copiar a formulario...">${prod.title}</a></td>
+                    <td>${prod.descrip}</td>
                     <td>$${prod.price}</td>
                     <td><img width="50" src=${prod.thumbnail} alt="not found"></td>
                     <td>${prod.stock}</td>
