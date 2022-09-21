@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "timestamp": 1661897259650,
+    "productos": [
+      {
+        "title": "Cuaderno A4",
+        "price": "1015",
+        "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/book-note-paper-school-256.png",
+        "id": "4"
+      }
+    ],
+    "id": "1"
+  }
+]

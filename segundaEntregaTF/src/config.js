@@ -11,7 +11,7 @@ export default {
             serverSelectionTimeoutMS: 5000,
         }
     },
-    firebase: { //Cambiar por la config personal
+    firebase: { 
         "type": "service_account",
         "project_id": "coderhouse-933de",
         "private_key_id": "b67af6891f467d2274f6028485ec252d7fb0ef4b",
