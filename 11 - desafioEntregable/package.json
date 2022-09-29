@@ -1,0 +1,22 @@
+{
+  "name": "desafioentregable11",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon --inspect ./src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.3",
+    "knex": "^2.3.0",
+    "mysql": "^2.18.1",
+    "socket.io": "^4.4.1",
+    "sqlite3": "^5.0.11",
+    "faker": "5.4.0"
+  }
+}
