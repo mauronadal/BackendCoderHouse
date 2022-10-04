@@ -13,8 +13,43 @@ const server = http.createServer(app);
 const io = new Server(server);
 
 const contenedor = new Contenedor(optionsSQL, 'productos');
-const chat = new Contenedor(optionsSQLITE, 'messages')
+const chat = new Contenedor(optionsSQLITE, 'messages');
 
+const normalizr = require('normalizr');
+const normalize = normalizr.normalize;
+const denormalize = normalizr.denormalize;
+const schema = normalizr.schema;
+
+
+    const authorSchema = new schema.Entity('autor')
+    const mensajeSchema = new schema.Entity('mensaje', {
+        autor: {
+            id: 'mail',
+            nombre: 'nombre',
+            apellido: 'apellido',
+            edad: 'edad',
+            avatar: 'avatar',
+         },
+         text:'mensaje'
+    })
+
+const util = require ('util')
+
+function print(objeto) {
+    console.log(util.inspect(objeto,false,12,true))
+}
+console.log('------ORIGINAL------')
+console.log(JSON.stringify(chat).length)
+
+console.log('------NORMALIZADO------')
+const MensajesNormalizados = normalize ( chat , mensajeSchema )
+//print(mensajeSchema)
+console.log(JSON.stringify( MensajesNormalizados ).length)
+
+console.log('------DENORMALIZADO------')
+const Mensajesnormalizados = normalize ( chat , mensajeSchema )
+const MensajesDesnormalizados = denormalize ( Mensajesnormalizados , mensajeSchema , Mensajesnormalizados.entities )
+console.log(JSON.stringify( MensajesDesnormalizados ).length)
 
 
 

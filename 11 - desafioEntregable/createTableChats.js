@@ -7,6 +7,10 @@ knex.schema.createTable('messages', table => {
       table.string('date')
       table.string('email')
       table.string('message')
+      table.string('nombre')
+      table.string('apellido')
+      table.string('avatar')
+
       
 })
     .then(() => console.log('tabla creada'))

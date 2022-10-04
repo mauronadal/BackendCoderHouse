@@ -49,18 +49,45 @@
 
         <hr>
         <span>Centro de Mensajes</span>
-        
-        <div class="col-sm-3">
+        <div class="col">
+        <div class="col-sm-2" >
             <div class="input-group input-group-sm mb-3">
                 <span class="input-group-text" id="basic-addon3">Email</span>
-                <input id="input-email" type="text" name="thumbnail" required class="form-control" placeholder="Ingresá tu email" aria-label="email" aria-describedby="basic-addon1">
+                <input id="input-email" type="email" name="thumbnail" required class="form-control"  aria-label="email" aria-describedby="basic-addon1">
             </div>
         </div>
+
+        <div class="col-sm-3">
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="basic-addon3">Nombre</span>
+                <input id="input-nombre" type="text" name="thumbnail" required class="form-control"  aria-label="nombre" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="basic-addon3">Apellido</span>
+                <input id="input-apellido" type="text" name="thumbnail" required class="form-control"  aria-label="apellido" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="col-sm-1">
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="basic-addon3">Edad</span>
+                <input id="input-edad" type="number" name="thumbnail" required class="form-control"  aria-label="edad" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="basic-addon3">Avatar</span>
+                <input id="input-avatar" type="text" name="thumbnail" required class="form-control"  aria-label="avatar" aria-describedby="basic-addon1">
+            </div>
+        </div>
+
+
 
         <div class="col-sm-5">
             <div class="input-group input-group-sm mb-3">
                 <span class="input-group-text" id="basic-addon3">Mensaje</span>
-                <input id="input-mensaje" type="email" name="thumbnail" required class="form-control" placeholder="Ingresá tu mensaje" aria-label="mensaje" aria-describedby="basic-addon1">
+                <input id="input-mensaje" type="text" name="thumbnail" required class="form-control"  aria-label="mensaje" aria-describedby="basic-addon1">
             </div>
         </div>
 
@@ -70,6 +97,14 @@
                 <button id="btn-submit-mensaje" class="btn btn-primary btn-sm">Enviar</button>
             </div>
         </div>
+
+</div>
+
+
+
+
+
+        
         
         <span>Historial de mensajes</span>
         
@@ -80,6 +115,14 @@
        
 
     <script>
+
+        const { denormalize } = require('normalizr');
+
+        const denormalizedMensaje = denormalize(
+        normalizedMensaje.result, organigrama, normalizedMensaje.entities
+        );
+
+
         const socket = io();
         const btn = document.getElementById('btn-submit');
         const btnMensaje = document.getElementById('btn-submit-mensaje');
@@ -91,12 +134,20 @@
         btnMensaje.addEventListener('click', (evt) => {
             evt.preventDefault();
             const email = document.getElementById('input-email').value;
+            const nombre = document.getElementById('input-nombre').value;
+            const apellido = document.getElementById('input-apellido').value;
+            const edad = document.getElementById('input-edad').value;
+            const avatar = document.getElementById('input-avatar').value;
             const mensaje = document.getElementById('input-mensaje').value;
             
-            if (email !== '' && mensaje !== '') {
+            if (email !== '' && nombre !== '' && apellido !=='' && edad !=='' && avatar !=='' && mensaje !== '') {
             
                 socket.emit('nuevoMensaje', {
                     "email" : email,
+                    "nombre" : nombre,
+                    "apellido" : apellido,
+                    "edad" : edad,
+                    "avatar" : avatar,
                     "message" : mensaje,
                     "date" : new Date().toLocaleString()
                 })
@@ -128,7 +179,7 @@
             data.forEach( (mensaje) => {
                 $('#historial-mensajes').append(
                 `
-                <small style="display:block"><strong style="color:blue">${mensaje.email}</strong> - <em style="color:#9f9f9f">[${mensaje.date}]</em> : ${mensaje.message} </small>
+                <small style="display:block"><strong style="color:blue">${mensaje.email}</strong> - <em style="color:#9f9f9f">[${mensaje.date}]</em> : ${mensaje.nombre},${mensaje.apellido} Edad: ${mensaje.edad} ${mensaje.message} </small>
                 `
                 )
             })
@@ -140,7 +191,7 @@
             data.forEach( (mensaje) => {
                 $('#historial-mensajes').append(
                 `
-                <small style="display:block"><strong style="color:blue">${mensaje.email}</strong> - <em style="color:#9f9f9f">[${mensaje.date}]</em> : ${mensaje.message} </small>
+                <small style="display:block"><strong style="color:blue">${mensaje.email}</strong> - <em style="color:#9f9f9f">[${mensaje.date}]</em> : ${mensaje.nombre},${mensaje.apellido} Edad: ${mensaje.edad} ${mensaje.message} </small>
                 `
                 )
             })
