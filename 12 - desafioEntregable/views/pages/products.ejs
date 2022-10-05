@@ -1,0 +1,122 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+    crossorigin="anonymous"
+    />
+    <link rel="stylesheet"  href="./styles.css" />
+    
+    <title>Curso - BackEnd</title>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
+  </head>
+
+  <body class="d-flex flex-column min-vh-100">
+    <header>
+    
+    </header>
+    <div class="container d-flex flex-column w-50 my-2">
+      <h2 class="text-center">LISTADO DE PRODUCTOS</h2>
+
+      <table class="table my-1">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Creador</th>
+          </tr>
+        </thead>
+        <tbody id="productsTable">
+          <% if (productsExist) { %> 
+            <% products.forEach((element) => { %>
+          <tr>
+            <th scope="row"><%=element.id%></th>
+            <td style="text-transform: uppercase"><%=element.name%></td>
+            <td><%=element.price%></td>
+            <td>
+              <img src="<%=element.thumbnail%>" class="w-50" alt="..." />
+            </td>
+          </tr>
+            <%})%> 
+          <% }%>
+        </tbody>
+      </table>
+    </div>
+<!-- 
+    <div
+      id="data-ingreso" class="container d-flex flex-column align-items-center w-50 bg-light my-2 mb-5"
+    >
+      <h2 class="text-center">CENTRO DE MENSAJES</h2>
+      <input
+        type="email"
+        id="email"
+        class="form-control w-100"
+        value="franlagorio@gmail.com"
+        placeholder="...@email.com"
+      />
+      <input
+        type="text"
+        id="nombre"
+        class="form-control w-100"
+        value="Francisco"
+        placeholder="Nombre"
+      />
+      <input
+        type="text"
+        id="apellido"
+        class="form-control w-100"
+        value="Lagorio"
+        placeholder="Apellido"
+      />
+      <input
+        type="number"
+        id="edad"
+        class="form-control w-100"
+        value="27"
+        placeholder="Edad"
+      />
+      <input
+        type="text"
+        id="alias"
+        class="form-control w-100"
+        value="Franchas"
+        placeholder="Alias"
+      />
+      <input
+        type="text"
+        id="avatar"
+        class="form-control w-100"
+        value="https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/2_avatar-256.png"
+        placeholder="Avatar"
+      />
+      <input
+        type="text"
+        id="caja-msg"
+        class="form-control w-100"
+        value="Hola!"
+        placeholder="Escriba su mensaje"
+      />
+      <div class="w-100 text-center" id="div-chats"></div>
+      <div class="d-flex flex-row no-wrap w-100">
+        <button class="btn btn-success w-100 mx-1" onclick="enviarChat()">
+          Enviar msg
+        </button>
+      </div>
+    </div> -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <footer class="mt-auto footer"></footer>
+  </body>
+</html>
