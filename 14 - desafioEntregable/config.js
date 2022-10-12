@@ -6,6 +6,6 @@ dotenv.config();
 const args = parseArgs(process.argv.slice(2));
 
 const PORT = args.PORT || process.env.PORT || 8080;
-const MONGOPSW = process.env.MONGOATLAS;
+const MONGOPASS = process.env.MONGOATLAS;
 
-export { PORT, MONGOPSW };
+export { PORT, MONGOPASS };

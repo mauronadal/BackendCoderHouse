@@ -15,6 +15,8 @@ import {
 import { socketController } from "./src/utils/socketController.js";
 
 
+// Variable de entrotno
+import  {PORT, MONGOPASS} from "./config.js";
 
 
 // Login ---------------------------------------------------------------------------
@@ -29,7 +31,7 @@ import { isValidPassword, createHash } from "./src/utils/passwordsFunctions.js";
 
 //Creacion de Servidor y Sockets ---------------------------------------------------
 const app = express();
-const PORT = process.env.port || 8080;
+
 const httpServer = createServer(app);
 const io = new Server(httpServer, {});
 socketController(io);
@@ -42,7 +44,7 @@ const __dirname = dirname(__filename);
 // Base de Datos---------- ----------------------------------------------------------
 mongoose
   .connect(
-    `mongodb+srv://mauronadal32065:teaVeWUKN0jNX0yX@cluster0.tmjja4h.mongodb.net/?retryWrites=true&w=majority`,
+    `mongodb+srv://mauronadal32065:${MONGOPASS}@cluster0.tmjja4h.mongodb.net/?retryWrites=true&w=majority`,
     { useNewUrlParser: true }
   )
   .then(() => console.log("Connectado con Mongo Atlas"));
