@@ -50,7 +50,7 @@ mongoose
   .then(() => console.log("Connectado con Mongo Atlas"));
 
 
-// LOGINS Passport -----------------------------------------------------------
+// Login Passport -----------------------------------------------------------
 passport.use(
    "login",
     new LocalStrategy((username, password, done) => {
@@ -130,7 +130,7 @@ httpServer.on("error", (error) => console.log(`Error en servidor ${error}`));
 app.use(
   session({
     //store: new RedisStore({ host: "localhost", port: 6379, client, ttl: 300 }),
-    secret: "keyboard cat",
+    secret: "secreto",
     cookie: {
       httpOnly: false,
       secure: false,
