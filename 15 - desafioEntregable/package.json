@@ -1,0 +1,34 @@
+{
+  "name": "entregables",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Mauro Nadal",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "connect-mongo": "^4.6.0",
+    "connect-redis": "^6.1.3",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "minimist": "^1.2.6",
+    "mongoose": "^6.6.1",
+    "normalizr": "^3.6.2",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "redis": "^4.3.1",
+    "socket.io": "^4.5.1"
+    
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.5.0"
+  }
+}
