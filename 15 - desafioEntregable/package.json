@@ -12,6 +12,7 @@
   "author": "Mauro Nadal",
   "license": "ISC",
   "dependencies": {
+    "@socket.io/redis-adapter": "^7.2.0",
     "bcrypt": "^5.1.0",
     "connect-mongo": "^4.6.0",
     "connect-redis": "^6.1.3",

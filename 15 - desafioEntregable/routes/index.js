@@ -6,7 +6,6 @@ import apiRandomsRouter from "./apiRandomsRouter.js";
 import logoutRouter from "./logoutRouter.js";
 
 import parseArgs from "minimist";
-
 import os from "os";
 
 const infoRouter = (req, res) => {
