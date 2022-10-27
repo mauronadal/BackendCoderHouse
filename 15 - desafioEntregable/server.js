@@ -16,7 +16,7 @@ import { socketController } from "./src/utils/socketController.js";
 
 
 // Variable de entrotno
-import  {PORT, MONGOPASS} from "./config.js";
+import  {PORT, MONGOPASS, MODO} from "./config.js";
 
 
 // Login ---------------------------------------------------------------------------
@@ -210,6 +210,59 @@ app.get("/ruta-protegida", checkAuthentication, (req, res) => {
   const user = { username, password };
   res.send("<h1>Ruta ok!</h1>" + JSON.stringify(user));
 });
+
+// SERVIDOR FORK FOREVER ------------------------------------------
+const cluster = require("cluster");
+const os = require("os");
+const numCPUs = os.cpus().length;
+if (MODO === "CLUSTER") {
+  if (cluster.isPrimary) {
+    console.log("MODO CLUSTER");
+    console.log("Servidor Funcionando en Puerto: " + PORT);
+    console.log(`Master es el PID ${process.pid} `);
+    // fork workers.
+    console.log(numCPUs);
+    for (let i = 0; i < numCPUs; i++) {
+      cluster.fork();
+    }
+    cluster.on("exit", (worker, code, signal) => {
+      cluster.fork();
+      console.log(`worker ${worker.process.pid} murio`);
+    });
+  } else {
+    const httpServer = http.createServer(app);
+    httpServer.listen(PORT, () => {
+      console.log(`inicie un Worker nuevo ${process.pid}`);
+    });
+    // SOCKET ---------------------------------------------
+    const io = new Server(httpServer, {});
+    socketController(io);
+    
+  }
+} else {
+  const httpServer = http.createServer(app);
+  //  SOCKET ----------------------------------------------
+  const io = new Server(httpServer, {});
+  socketController(io);
+  
+  httpServer.listen(PORT, () => {
+    console.log("Servidor Funcionando en Puerto: " + PORT);
+    console.log("MODO FORK");
+  });
+  httpServer.on("error", (error) => console.log(`Error en servidor ${error}`));
+}
+
+//////////////PM2
+
+// const httpServer = http.createServer(app);
+// httpServer.listen(PORT, () => {
+//   console.log(PORT);
+//   console.log("Servidor Funcionando en Puerto: " + PORT);
+// });
+// httpServer.on("error", (error) => console.log(`Error en servidor ${error}`));
+// const io = new Server(httpServer, {});
+// socketController(io);
+
 
 // Error de request -------------------------------------------------------------------
 app.all("*", (req, res) => {
