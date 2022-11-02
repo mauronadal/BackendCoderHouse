@@ -252,7 +252,7 @@ if (MODO === "CLUSTER") {
   httpServer.on("error", (error) => console.log(`Error en servidor ${error}`));
 }
 
-//////////////PM2
+//PM2 ------------------------------------------------------
 
 // const httpServer = http.createServer(app);
 // httpServer.listen(PORT, () => {
